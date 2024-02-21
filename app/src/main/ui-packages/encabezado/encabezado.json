@@ -1,0 +1,256 @@
+{
+  "name": "encabezado",
+  "version": 32,
+  "source-key": {
+    "type": "figma",
+    "file": "Hz8SCU6RjbLGQmK8hkhFRl",
+    "node": "31:391",
+    "version": "5199184790",
+    "component-id": "8a45e6bc1769f779b18c1a3dcd6aa19c6d62a3d0"
+  },
+  "default": "Encabezado",
+  "design": {
+    "atoms": [
+      {
+        "type": "group",
+        "id": "top_level",
+        "root": "true"
+      },
+      {
+        "type": "text",
+        "id": "NombreEmpresa"
+      },
+      {
+        "type": "text",
+        "id": "eslogan"
+      },
+      {
+        "type": "vector",
+        "id": "Line 1"
+      },
+      {
+        "type": "vector",
+        "id": "Line 2"
+      },
+      {
+        "type": "group",
+        "id": "ion:diamond-outline"
+      },
+      {
+        "type": "vector",
+        "id": "Vector"
+      },
+      {
+        "type": "vector",
+        "id": "Vector1"
+      }
+    ],
+    "modes": {
+      "Encabezado": {
+        "rules": [
+          {
+            "id": "top_level",
+            "is-structured": "false",
+            "children": [
+              "NombreEmpresa",
+              "eslogan",
+              "Line 1",
+              "Line 2",
+              "ion:diamond-outline"
+            ],
+            "clip-content": "false"
+          },
+          {
+            "id": "NombreEmpresa",
+            "margin": {
+              "left": "66.0",
+              "right": "60.0",
+              "bottom": "94.0"
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "proportional",
+                "value": "1.0"
+              },
+              "height-constraints": {
+                "sizing-mode": "proportional",
+                "value": "1.0"
+              }
+            },
+            "color": {
+              "alpha": "1.0",
+              "hue": "0.0",
+              "saturation": "0.0",
+              "value": "1.0"
+            },
+            "text-content": "GourmetNow!",
+            "overflow": "visible",
+            "max-lines": "-1",
+            "text-align": "left",
+            "text-size": "60.0",
+            "typeface": "Kapakana"
+          },
+          {
+            "id": "eslogan",
+            "margin": {
+              "top": "89.0"
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "proportional",
+                "value": "1.0"
+              },
+              "height-constraints": {
+                "sizing-mode": "proportional",
+                "value": "1.0"
+              }
+            },
+            "color": {
+              "alpha": "1.0",
+              "hue": "0.0",
+              "saturation": "0.0",
+              "value": "1.0"
+            },
+            "text-content": "Tu app de comida gourmet a domicilio",
+            "overflow": "visible",
+            "max-lines": "-1",
+            "text-size": "30.0",
+            "typeface": "Kapakana"
+          },
+          {
+            "id": "Line 1",
+            "margin": {
+              "top": "71.99999999999999",
+              "right": "227.0",
+              "bottom": "71.00000000000001"
+            },
+            "alignment": {
+              "horizontal": {
+                "attachment": "start",
+                "offset": "0.0"
+              },
+              "vertical": {
+                "attachment": "start",
+                "offset": "-3.0"
+              }
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "proportional",
+                "value": "1.0"
+              },
+              "height-constraints": {
+                "sizing-mode": "proportional",
+                "value": "1.0"
+              }
+            },
+            "vector-content": "line_1.svg"
+          },
+          {
+            "id": "Line 2",
+            "margin": {
+              "left": "227.0",
+              "top": "71.99999999999999",
+              "bottom": "71.00000000000001"
+            },
+            "alignment": {
+              "horizontal": {
+                "attachment": "start",
+                "offset": "0.0"
+              },
+              "vertical": {
+                "attachment": "start",
+                "offset": "-3.0"
+              }
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "proportional",
+                "value": "1.0"
+              },
+              "height-constraints": {
+                "sizing-mode": "proportional",
+                "value": "1.0"
+              }
+            },
+            "vector-content": "line_2.svg"
+          },
+          {
+            "id": "ion:diamond-outline",
+            "margin": {
+              "left": "173.0",
+              "top": "57.0",
+              "right": "167.0",
+              "bottom": "56.0"
+            },
+            "is-structured": "false",
+            "children": [
+              "Vector",
+              "Vector1"
+            ]
+          },
+          {
+            "id": "Vector",
+            "alignment": {
+              "horizontal": {
+                "attachment": "center",
+                "offset": "-0.6250076293945312"
+              },
+              "vertical": {
+                "attachment": "center",
+                "offset": "-0.6250514984130859"
+              }
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": "29.749801635742188"
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": "24.374897003173828"
+              }
+            },
+            "vector-content": "vector.svg"
+          },
+          {
+            "id": "Vector1",
+            "alignment": {
+              "horizontal": {
+                "attachment": "center",
+                "offset": "-0.625152587890625"
+              },
+              "vertical": {
+                "attachment": "center",
+                "offset": "-1.09375"
+              }
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": "19.125"
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": "23.4375"
+              }
+            },
+            "vector-content": "vector1.svg"
+          }
+        ]
+      }
+    }
+  },
+  "previews": [
+    {
+      "design": "Encabezado",
+      "size": {
+        "width": 374.0,
+        "height": 143.0
+      }
+    }
+  ],
+  "adin-component-search-paths": [],
+  "image-search-paths": [],
+  "vector-search-paths": []
+}
