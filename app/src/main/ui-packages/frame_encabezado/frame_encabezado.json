@@ -1,20 +1,24 @@
 {
-  "name": "encabezado",
+  "name": "frame_encabezado",
   "version": 32,
   "source-key": {
     "type": "figma",
     "file": "Hz8SCU6RjbLGQmK8hkhFRl",
-    "node": "31:391",
-    "version": "5199184790",
-    "component-id": "8a45e6bc1769f779b18c1a3dcd6aa19c6d62a3d0"
+    "node": "33:2",
+    "version": "5235219880",
+    "component-id": "945d45cd2ff9ad4bbccc745656c19bd5f1b373b9"
   },
-  "default": "Encabezado",
+  "default": "Frame_Encabezado",
   "design": {
     "atoms": [
       {
         "type": "group",
         "id": "top_level",
         "root": "true"
+      },
+      {
+        "type": "group",
+        "id": "Encabezado"
       },
       {
         "type": "text",
@@ -46,10 +50,41 @@
       }
     ],
     "modes": {
-      "Encabezado": {
+      "Frame_Encabezado": {
         "rules": [
           {
             "id": "top_level",
+            "padding": {
+              "left": "90.0",
+              "top": "20.0",
+              "right": "90.0",
+              "bottom": "20.0"
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "shrink"
+              },
+              "height-constraints": {
+                "sizing-mode": "shrink"
+              }
+            },
+            "children": [
+              "Encabezado"
+            ],
+            "item-spacing": "10.0"
+          },
+          {
+            "id": "Encabezado",
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": "374.0"
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": "143.0"
+              }
+            },
             "is-structured": "false",
             "children": [
               "NombreEmpresa",
@@ -62,19 +97,24 @@
           },
           {
             "id": "NombreEmpresa",
-            "margin": {
-              "left": "66.0",
-              "right": "60.0",
-              "bottom": "94.0"
+            "alignment": {
+              "horizontal": {
+                "attachment": "center",
+                "offset": "3.0"
+              },
+              "vertical": {
+                "attachment": "center",
+                "offset": "-47.0"
+              }
             },
             "size-constraints": {
               "width-constraints": {
-                "sizing-mode": "proportional",
-                "value": "1.0"
+                "sizing-mode": "fixed",
+                "value": "248.0"
               },
               "height-constraints": {
-                "sizing-mode": "proportional",
-                "value": "1.0"
+                "sizing-mode": "fixed",
+                "value": "49.0"
               }
             },
             "color": {
@@ -92,17 +132,24 @@
           },
           {
             "id": "eslogan",
-            "margin": {
-              "top": "89.0"
+            "alignment": {
+              "horizontal": {
+                "attachment": "center",
+                "offset": "0.0"
+              },
+              "vertical": {
+                "attachment": "center",
+                "offset": "44.5"
+              }
             },
             "size-constraints": {
               "width-constraints": {
-                "sizing-mode": "proportional",
-                "value": "1.0"
+                "sizing-mode": "fixed",
+                "value": "374.0"
               },
               "height-constraints": {
-                "sizing-mode": "proportional",
-                "value": "1.0"
+                "sizing-mode": "fixed",
+                "value": "54.0"
               }
             },
             "color": {
@@ -119,69 +166,73 @@
           },
           {
             "id": "Line 1",
-            "margin": {
-              "top": "71.99999999999999",
-              "right": "227.0",
-              "bottom": "71.00000000000001"
-            },
             "alignment": {
               "horizontal": {
-                "attachment": "start",
-                "offset": "0.0"
+                "attachment": "center",
+                "offset": "-113.5"
               },
               "vertical": {
-                "attachment": "start",
-                "offset": "-3.0"
+                "attachment": "center",
+                "offset": "-2.500000000000014"
               }
             },
             "size-constraints": {
               "width-constraints": {
-                "sizing-mode": "proportional",
-                "value": "1.0"
+                "sizing-mode": "fixed",
+                "value": "147.0"
               },
               "height-constraints": {
-                "sizing-mode": "proportional",
-                "value": "1.0"
+                "sizing-mode": "fixed",
+                "value": "0.0"
               }
             },
             "vector-content": "line_1.svg"
           },
           {
             "id": "Line 2",
-            "margin": {
-              "left": "227.0",
-              "top": "71.99999999999999",
-              "bottom": "71.00000000000001"
-            },
             "alignment": {
               "horizontal": {
-                "attachment": "start",
-                "offset": "0.0"
+                "attachment": "center",
+                "offset": "113.5"
               },
               "vertical": {
-                "attachment": "start",
-                "offset": "-3.0"
+                "attachment": "center",
+                "offset": "-2.500000000000014"
               }
             },
             "size-constraints": {
               "width-constraints": {
-                "sizing-mode": "proportional",
-                "value": "1.0"
+                "sizing-mode": "fixed",
+                "value": "147.0"
               },
               "height-constraints": {
-                "sizing-mode": "proportional",
-                "value": "1.0"
+                "sizing-mode": "fixed",
+                "value": "0.0"
               }
             },
             "vector-content": "line_2.svg"
           },
           {
             "id": "ion:diamond-outline",
-            "margin": {
-              "left": "173.0",
-              "top": "57.0",
-              "right": "167.0",
-              "bottom": "56.0"
+            "alignment": {
+              "horizontal": {
+                "attachment": "center",
+                "offset": "3.0"
+              },
+              "vertical": {
+                "attachment": "center",
+                "offset": "0.5"
+              }
+            },
+            "size-constraints": {
+              "width-constraints": {
+                "sizing-mode": "fixed",
+                "value": "34.0"
+              },
+              "height-constraints": {
+                "sizing-mode": "fixed",
+                "value": "30.0"
+              }
             },
             "is-structured": "false",
             "children": [
@@ -243,10 +294,10 @@
   },
   "previews": [
     {
-      "design": "Encabezado",
+      "design": "Frame_Encabezado",
       "size": {
-        "width": 374.0,
-        "height": 143.0
+        "width": 554.0,
+        "height": 183.0
       }
     }
   ],
