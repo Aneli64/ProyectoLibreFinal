@@ -45,7 +45,7 @@ fun encabezado() {
         Row(
             modifier = Modifier
                 .fillMaxSize()
-                .padding(bottom = 670.dp)
+                .padding(bottom = 600.dp)
                 .padding(start = 5.dp)
         ) {
             Image(

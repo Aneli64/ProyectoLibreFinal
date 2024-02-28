@@ -8,7 +8,6 @@ import androidx.compose.ui.unit.dp
 import com.example.proyectolibrefinal.framecartacompleta.Image3
 import com.example.proyectolibrefinal.framecartacompleta.Image4
 import com.example.proyectolibrefinal.framecartacompleta.Image5
-import com.example.proyectolibrefinal.framecartacompleta.Image6
 import com.example.proyectolibrefinal.framecartacompleta.Image7
 import com.example.proyectolibrefinal.framecartacompleta.Image8
 import com.example.proyectolibrefinal.framecartacompleta.Line10
@@ -16,25 +15,21 @@ import com.example.proyectolibrefinal.framecartacompleta.Line11
 import com.example.proyectolibrefinal.framecartacompleta.Line12
 import com.example.proyectolibrefinal.framecartacompleta.Line13
 import com.example.proyectolibrefinal.framecartacompleta.Line14
-import com.example.proyectolibrefinal.framecartacompleta.Line15
 import com.example.proyectolibrefinal.framecartacompleta.Menu1
 import com.example.proyectolibrefinal.framecartacompleta.Menu2
 import com.example.proyectolibrefinal.framecartacompleta.Menu3
 import com.example.proyectolibrefinal.framecartacompleta.Menu4
 import com.example.proyectolibrefinal.framecartacompleta.Menu5
-import com.example.proyectolibrefinal.framecartacompleta.Menu6
 import com.example.proyectolibrefinal.framecartacompleta.Precio1
 import com.example.proyectolibrefinal.framecartacompleta.Precio2
 import com.example.proyectolibrefinal.framecartacompleta.Precio3
 import com.example.proyectolibrefinal.framecartacompleta.Precio4
 import com.example.proyectolibrefinal.framecartacompleta.Precio5
-import com.example.proyectolibrefinal.framecartacompleta.Precio6
 import com.example.proyectolibrefinal.framecartacompleta.Text1
 import com.example.proyectolibrefinal.framecartacompleta.Text2
 import com.example.proyectolibrefinal.framecartacompleta.Text3
 import com.example.proyectolibrefinal.framecartacompleta.Text4
 import com.example.proyectolibrefinal.framecartacompleta.Text5
-import com.example.proyectolibrefinal.framecartacompleta.Text6
 
 @Composable
 fun chooseMenu(id: Int){
@@ -42,9 +37,8 @@ fun chooseMenu(id: Int){
         1 -> menu1View()
         2 -> menu2View()
         3 -> menu3View()
-        //4 -> menu4View()
-        //5 -> menu5View()
-        //6 -> menu16View()
+        4 -> menu4view()
+        5 -> menu5view()
     }
 }
 @Composable
@@ -253,48 +247,6 @@ fun menu5view(menu5Button: () -> Unit = {}){
                 offset = DpOffset(
                     x = 144.0.dp,
                     y = 39.5.dp
-                )
-            )
-        )
-    }
-}
-
-@Composable
-fun menu6view(menu6Button: () -> Unit = {}){
-    Menu6(menu6Button = menu6Button) {
-        Line15(
-            modifier = Modifier.boxAlign(
-                alignment = Alignment.Center,
-                offset = DpOffset(
-                    x = -12.0.dp,
-                    y = -60.999999999999844.dp
-                )
-            )
-        )
-        Text6(
-            modifier = Modifier.boxAlign(
-                alignment = Alignment.Center,
-                offset = DpOffset(
-                    x = 45.5.dp,
-                    y = -3.5.dp
-                )
-            )
-        )
-        Precio6(
-            modifier = Modifier.boxAlign(
-                alignment = Alignment.Center,
-                offset = DpOffset(
-                    x = 144.0.dp,
-                    y = 39.5.dp
-                )
-            )
-        )
-        Image6(
-            modifier = Modifier.boxAlign(
-                alignment = Alignment.Center,
-                offset = DpOffset(
-                    x = -141.0.dp,
-                    y = -2.0.dp
                 )
             )
         )

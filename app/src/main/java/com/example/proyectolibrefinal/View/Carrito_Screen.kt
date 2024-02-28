@@ -31,7 +31,6 @@ fun carrito_screen(viewModel: ViewModel, navController: NavController) {
             ApartadoCarrito()
         }
 
-        // Box para colocar LazyColumn y botones uno encima del otro
         Box {
             LazyColumn {
                 items(viewModel.carrito) { item ->
@@ -39,11 +38,10 @@ fun carrito_screen(viewModel: ViewModel, navController: NavController) {
                 }
             }
 
-            // Botones FrameBotonesApp fuera del LazyColumn
             Row(
                 modifier = Modifier
-                    .padding(top = 470.dp)
-                    .padding(bottom = 16.dp) // Ajusta el espaciado según sea necesario
+                    .padding(top = 481.dp)
+                    .padding(bottom = 16.dp)
             ) {
                 FrameBotonesApp(
                     menuButton = { navController.navigate(Routes.Screen_FoodMenu.route) },
