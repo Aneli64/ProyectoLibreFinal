@@ -15,20 +15,7 @@ import com.google.firebase.firestore.firestore
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
-/**
- * ViewModel responsable de gestionar la lógica de autenticación de usuarios.
- * Proporciona funciones para el inicio de sesión y registro de usuarios utilizando Firebase Auth.
- * Mantiene el estado de la UI relevante para la autenticación, como los campos de entrada y las alertas.
- *
- * @property auth Instancia de FirebaseAuth utilizada para las operaciones de autenticación.
- * @property showAlert Estado que determina si se debe mostrar una alerta de error en la UI.
- * @property email Email del usuario, utilizado para el inicio de sesión y registro.
- * @property password Contraseña del usuario, utilizada para el inicio de sesión y registro.
- * @property userName Nombre de usuario, utilizado solo en el proceso de registro.
- * @property selectedTab Índice de la pestaña seleccionada en la UI, utilizado para alternar entre las vistas de inicio de sesión y registro.
- */
 class LoginViewModel: ViewModel() {
-    // DCS - Definición de variables y funciones para manejar el inicio de sesión y registro de usuarios.
 
     private val auth: FirebaseAuth = Firebase.auth
     private val firestore = Firebase.firestore
@@ -45,17 +32,12 @@ class LoginViewModel: ViewModel() {
         private set
 
     /**
-     * Intenta iniciar sesión con el email y la contraseña proporcionados.
-     * Si el inicio de sesión es exitoso, ejecuta la acción de éxito proporcionada.
-     * En caso de error, actualiza el estado para mostrar una alerta.
-     *
-     * @param onSuccess Acción a ejecutar si el inicio de sesión es exitoso.
+     * Metdo que nos realiza el login siempre u caudno se cumplan las condiciones necesarias
+     * @param onSuccess Lamda que se ejecuta al realizarse correctamente la operacion de login
      */
     fun login(onSuccess: () -> Unit){
         viewModelScope.launch {
             try {
-                // DCS - Utiliza el servicio de autenticación de Firebase para validar al usuario
-                // por email y contraseña
                 auth.signInWithEmailAndPassword(email, password)
                     .addOnCompleteListener { task ->
                         if (task.isSuccessful) {
@@ -72,21 +54,15 @@ class LoginViewModel: ViewModel() {
     }
 
     /**
-     * Crea un nuevo usuario con el email y la contraseña proporcionados.
-     * Si el registro es exitoso, guarda la información del usuario y ejecuta la acción de éxito proporcionada.
-     * En caso de error, actualiza el estado para mostrar una alerta.
-     *
-     * @param onSuccess Acción a ejecutar si el registro es exitoso.
+     * Metodo que crea un numero usuario en base a un email y password
+     * @param onSuccess Lamda que se ejecuta al realizarse correctamente la operacion de create
      */
     fun createUser(onSuccess: () -> Unit){
         viewModelScope.launch {
             try {
-                // DCS - Utiliza el servicio de autenticación de Firebase para registrar al usuario
-                // por email y contraseña
                 auth.createUserWithEmailAndPassword(email, password)
                     .addOnCompleteListener { task ->
                         if (task.isSuccessful) {
-                            // DCS - Si se realiza con éxito, almacenamos el usuario en la colección "Users"
                             saveUser(userName)
                             onSuccess()
                         } else {
@@ -101,8 +77,7 @@ class LoginViewModel: ViewModel() {
     }
 
     /**
-     * Guarda la información del usuario recién registrado en Firestore.
-     *
+     * Metodo que almacena nuestro usuario en Firebase
      * @param username Nombre de usuario a guardar.
      */
     private fun saveUser(username: String){
@@ -115,52 +90,12 @@ class LoginViewModel: ViewModel() {
                 email = email.toString(),
                 passw = password
             )
-            // DCS - Añade el usuario a la colección "Users" en la base de datos Firestore
             firestore.collection("Users")
                 .add(user)
                 .addOnSuccessListener { Log.d("GUARDAR OK", "Se guardó el usuario correctamente en Firestore") }
                 .addOnFailureListener { Log.d("ERROR AL GUARDAR", "ERROR al guardar en Firestore") }
         }
     }
-
-    /* DCS - Otra forma de hacer lo mismo...
-
-    Accediendo a "FirebaseFirestore" directamente mediante su método estático getInstance().
-    Esto es perfectamente válido y se utiliza en muchas guías y ejemplos de Firebase,
-    pero yo prefiero la otra opción, es decir, utilizar la sintaxis de Kotlin para acceder a
-    servicios de Firebase, aprovechando la biblioteca firebase-ktx (Kotlin Extensions).
-    "Firebase.firestore" es esencialmente un wrapper que llama internamente a FirebaseFirestore.getInstance(),
-    proporcionando un acceso más conciso y alineado con las convenciones de Kotlin.
-
-    Además, puede considerarse más idiomática para los desarrolladores de Kotlin, ya que hace
-    uso de las extensiones de Kotlin (KTX) de Firebase, lo cual está en línea con las prácticas
-    recomendadas para el desarrollo moderno en Kotlin.
-
-    En cuanto a términos de funcionalidad, no hay diferencia; ambas opciones realizarán la operación
-    de escritura en Firestore de la misma manera. Pero si ya estamos utilizando las extensiones de Kotlin
-    para Firebase en otras partes de nuestra aplicación, usar "Firebase.firestore" puede ayudar a mantener
-    la consistencia en nuestra base de código.
-
-    import com.google.firebase.firestore.FirebaseFirestore
-
-    private fun saveUser(username: String){
-        val id = auth.currentUser?.uid
-        val email = auth.currentUser?.email
-
-        viewModelScope.launch(Dispatchers.IO) {
-            val user = UserModel(
-                userId = id.toString(),
-                email = email.toString(),
-                username = username
-            )
-            // DCS - Añade el usuario a la colección "Users" en la base de datos Firestore
-            FirebaseFirestore.getInstance().collection("Users")
-                .add(user)
-                .addOnSuccessListener { Log.d("GUARDAR OK", "Se guardó el usuario correctamente en Firestore") }
-                .addOnFailureListener { Log.d("ERROR AL GUARDAR", "ERROR al guardar en Firestore") }
-        }
-    }
-    */
 
     /**
      * Cierra el diálogo de alerta de error mostrada en la UI.
@@ -171,7 +106,6 @@ class LoginViewModel: ViewModel() {
 
     /**
      * Actualiza el email del usuario.
-     *
      * @param email Nuevo email a establecer.
      */
     fun changeEmail(email: String) {
@@ -180,7 +114,6 @@ class LoginViewModel: ViewModel() {
 
     /**
      * Actualiza la contraseña del usuario.
-     *
      * @param password Nueva contraseña a establecer.
      */
     fun changePassword(password: String) {
@@ -189,7 +122,6 @@ class LoginViewModel: ViewModel() {
 
     /**
      * Actualiza el nombre de usuario.
-     *
      * @param userName Nuevo nombre de usuario a establecer.
      */
     fun changeUserName(userName: String) {
@@ -198,7 +130,6 @@ class LoginViewModel: ViewModel() {
 
     /**
      * Cambia la pestaña seleccionada en la UI.
-     *
      * @param selectedTab Índice de la nueva pestaña seleccionada.
      */
     fun changeSelectedTab(selectedTab: Int) {
