@@ -1,4 +1,4 @@
-package com.example.proyectolibrefinal.View
+package com.example.proyectolibrefinal.Model
 
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -31,6 +31,11 @@ import com.example.proyectolibrefinal.framecartacompleta.Text3
 import com.example.proyectolibrefinal.framecartacompleta.Text4
 import com.example.proyectolibrefinal.framecartacompleta.Text5
 
+/**
+ * Metodo por el cual en base a un id, elegiremos mostrar los diferentes menus que apareceŕan en
+ * nuestro carrito
+ * @param id ID del menú a mostrar
+ */
 @Composable
 fun chooseMenu(id: Int){
     when(id){
@@ -41,6 +46,11 @@ fun chooseMenu(id: Int){
         5 -> menu5view()
     }
 }
+
+/**
+ * Vista del menú 1
+ * @param menu1Button Botón clickable que añade nuestro menú 1
+ */
 @Composable
 fun menu1View(menu1Button: () -> Unit = {}) {
     Menu1(menu1Button = menu1Button) {
@@ -83,6 +93,10 @@ fun menu1View(menu1Button: () -> Unit = {}) {
     }
 }
 
+/**
+ * Vista del menú 2
+ * @param menu2Button Botón clickable que añade nuestro menú 2
+ */
 @Composable
 fun menu2View(menu2Button: () -> Unit = {}) {
     Menu2(menu2Button = menu2Button) {
@@ -125,6 +139,10 @@ fun menu2View(menu2Button: () -> Unit = {}) {
     }
 }
 
+/**
+ * Vista del menú 3
+ * @param menu3Button Botón clickable que añade nuestro menú 3
+ */
 @Composable
 fun menu3View(menu3Button: () -> Unit = {}) {
     Menu3(menu3Button = menu3Button) {
@@ -167,6 +185,10 @@ fun menu3View(menu3Button: () -> Unit = {}) {
     }
 }
 
+/**
+ * Vista del menú 4
+ * @param menu4Button Botón clickable que añade nuestro menú 4
+ */
 @Composable
 fun menu4view(menu4Button: () -> Unit = {}){
     Menu4(menu4Button = menu4Button) {
@@ -211,6 +233,10 @@ fun menu4view(menu4Button: () -> Unit = {}){
 
 }
 
+/**
+ * Vista del menú 5
+ * @param menu5Button Botón clickable que añade nuestro menú 5
+ */
 @Composable
 fun menu5view(menu5Button: () -> Unit = {}){
     Menu5(menu5Button = menu5Button) {

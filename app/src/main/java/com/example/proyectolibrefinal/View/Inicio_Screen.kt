@@ -8,36 +8,25 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.unit.DpOffset
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 import com.example.proyectolibrefinal.Model.Routes
 import com.example.proyectolibrefinal.R
-import com.example.proyectolibrefinal.ViewModel
+import com.example.proyectolibrefinal.Model.ViewModel
+import com.example.proyectolibrefinal.Model.menu1View
+import com.example.proyectolibrefinal.Model.menu2View
+import com.example.proyectolibrefinal.Model.menu3View
 import com.example.proyectolibrefinal.apartadoinicio1.ApartadoInicio1
 import com.example.proyectolibrefinal.apartadoinicio2.ApartadoInicio2
 import com.example.proyectolibrefinal.framebotonesapp.FrameBotonesApp
-import com.example.proyectolibrefinal.framecartacompleta.Image3
-import com.example.proyectolibrefinal.framecartacompleta.Image4
-import com.example.proyectolibrefinal.framecartacompleta.Image7
-import com.example.proyectolibrefinal.framecartacompleta.Line10
-import com.example.proyectolibrefinal.framecartacompleta.Line11
-import com.example.proyectolibrefinal.framecartacompleta.Line13
-import com.example.proyectolibrefinal.framecartacompleta.Menu1
-import com.example.proyectolibrefinal.framecartacompleta.Menu2
-import com.example.proyectolibrefinal.framecartacompleta.Menu3
-import com.example.proyectolibrefinal.framecartacompleta.Precio1
-import com.example.proyectolibrefinal.framecartacompleta.Precio2
-import com.example.proyectolibrefinal.framecartacompleta.Precio3
-import com.example.proyectolibrefinal.framecartacompleta.Text1
-import com.example.proyectolibrefinal.framecartacompleta.Text2
-import com.example.proyectolibrefinal.framecartacompleta.Text3
 import com.example.proyectolibrefinal.vistainicio.VistaInicio
 
+/**
+ * Metodo que nos pinta el encabezado de nuestra app
+ */
 @Composable
 fun encabezado() {
     val encabezado: Painter = painterResource(id = R.drawable.frame_encabezado_preview)
@@ -57,6 +46,9 @@ fun encabezado() {
     }
 }
 
+/**
+ * Metodo que nos pinta la línea divisoria de nuestra pantalla de inicio
+ */
 @Composable
 fun lineaDiv() {
     val linea: Painter = painterResource(id = R.drawable.apartado_inicio_1_line_9)
@@ -68,7 +60,11 @@ fun lineaDiv() {
     )
 }
 
-
+/**
+ * Pantalla que nos muestra el inicio de nuestra app
+ * @param viewModel Viewmodel en el que se basa nuestra app
+ * @param navController Navegador que utilizaremos para dirigirnos a su pantalla
+ */
 @Composable
 fun inicio_screen(viewModel: ViewModel, navController: NavHostController) {
     //Fondo de pantalla y encabezado
