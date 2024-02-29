@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "362567451265",
+    "project_id": "proyectolibrefinal",
+    "storage_bucket": "proyectolibrefinal.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:362567451265:android:06eb48c649a60493e48380",
+        "android_client_info": {
+          "package_name": "com.example.proyectolibrefinal"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAOlpSRjruuy2R6UGsOpuW5MJIEMbIzJGQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

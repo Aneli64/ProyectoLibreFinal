@@ -15,7 +15,7 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 import com.example.proyectolibrefinal.Model.Routes
 import com.example.proyectolibrefinal.R
-import com.example.proyectolibrefinal.Model.ViewModel
+import com.example.proyectolibrefinal.ViewModel.ViewModel
 import com.example.proyectolibrefinal.Model.menu1View
 import com.example.proyectolibrefinal.Model.menu2View
 import com.example.proyectolibrefinal.Model.menu3View

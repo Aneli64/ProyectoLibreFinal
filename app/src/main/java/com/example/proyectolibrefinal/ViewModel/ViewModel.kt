@@ -1,4 +1,4 @@
-package com.example.proyectolibrefinal.Model
+package com.example.proyectolibrefinal.ViewModel
 
 import android.app.Application
 import android.content.Context

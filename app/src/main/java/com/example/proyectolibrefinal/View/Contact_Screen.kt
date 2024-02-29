@@ -8,7 +8,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import com.example.proyectolibrefinal.Model.Routes
-import com.example.proyectolibrefinal.Model.ViewModel
+import com.example.proyectolibrefinal.ViewModel.ViewModel
 import com.example.proyectolibrefinal.apartadoscontacto.ApartadosContacto
 import com.example.proyectolibrefinal.framebotonesapp.FrameBotonesApp
 import com.example.proyectolibrefinal.vistainicio.VistaInicio

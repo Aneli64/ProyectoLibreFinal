@@ -11,7 +11,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import com.example.proyectolibrefinal.Model.Routes
-import com.example.proyectolibrefinal.Model.ViewModel
+import com.example.proyectolibrefinal.ViewModel.ViewModel
 import com.example.proyectolibrefinal.Model.chooseMenu
 import com.example.proyectolibrefinal.apartadocarrito.ApartadoCarrito
 import com.example.proyectolibrefinal.framebotonesapp.FrameBotonesApp
