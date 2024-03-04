@@ -38,12 +38,12 @@ class MainActivity : ComponentActivity() {
                 ) {
                     val navController = rememberNavController()
                     NavHost(
-                        navController = navController, startDestination = Routes.Screen_Login.route
+                        navController = navController, startDestination = Routes.Screen_Inic.route
                     ) {
                         composable(Routes.Screen_Inic.route) { inicio_screen(viewModel, navController) }
-                        composable(Routes.Screen_FoodMenu.route) { menu_screen(viewModel, navController, loginViewModel) }
+                        composable(Routes.Screen_FoodMenu.route) { menu_screen(viewModel, navController) }
                         composable(Routes.Screen_Contact.route) { contacto_screen(viewModel, navController) }
-                        composable(Routes.Screen_Carrito.route) { carrito_screen(viewModel, navController) }
+                        composable(Routes.Screen_Carrito.route) { carrito_screen(viewModel, loginViewModel, navController) }
                         composable(Routes.Screen_Login.route) { pantalla_login(navController, loginViewModel) }
                         composable(Routes.Screen_Registro.route) { pantalla_registro(navController, loginViewModel) }
                     }

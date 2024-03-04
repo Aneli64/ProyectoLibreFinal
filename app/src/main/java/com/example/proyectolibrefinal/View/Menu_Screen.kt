@@ -24,8 +24,7 @@ import com.example.proyectolibrefinal.vistainicio.VistaInicio
 @Composable
 fun menu_screen(
     viewModel: ViewModel,
-    navController: NavController,
-    loginViewModel: LoginViewModel
+    navController: NavController
 ) {
     //Fondo de pantalla
     VistaInicio()
@@ -39,26 +38,11 @@ fun menu_screen(
     ) {
         Box {
             FrameCartaCompleta(
-                menu1Button = {
-                    viewModel.pedirMenu(context, 1)
-                    loginViewModel.saveMenu(1, viewModel)
-                },
-                menu2Button = {
-                    viewModel.pedirMenu(context, 2)
-                    loginViewModel.saveMenu(2, viewModel)
-                },
-                menu3Button = {
-                    viewModel.pedirMenu(context, 3)
-                    loginViewModel.saveMenu(3, viewModel)
-                },
-                menu4Button = {
-                    viewModel.pedirMenu(context, 4)
-                    loginViewModel.saveMenu(4, viewModel)
-                },
-                menu5Button = {
-                    viewModel.pedirMenu(context, 5)
-                    loginViewModel.saveMenu(5, viewModel)
-                },
+                menu1Button = { viewModel.pedirMenu(context, 1) },
+                menu2Button = { viewModel.pedirMenu(context, 2) },
+                menu3Button = { viewModel.pedirMenu(context, 3) },
+                menu4Button = { viewModel.pedirMenu(context, 4) },
+                menu5Button = { viewModel.pedirMenu(context, 5) },
                 nombreMenu1 = viewModel.menu1content[0],
                 precioMenu1 = viewModel.menu1content[1],
                 precioMenu2 = viewModel.menu2content[1],

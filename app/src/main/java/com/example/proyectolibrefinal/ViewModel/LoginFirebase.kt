@@ -8,6 +8,7 @@ import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.proyectolibrefinal.Model.MenuModel
+import com.example.proyectolibrefinal.Model.PedidoModel
 import com.example.proyectolibrefinal.Model.UserModel
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.auth
@@ -98,13 +99,15 @@ class LoginViewModel: ViewModel() {
         }
     }
 
-    fun saveMenu(idMenuToSaveFirebase: Int, viewModel: com.example.proyectolibrefinal.ViewModel.ViewModel) { //onSuccess: () -> Unit
+    fun saveMenu(viewModel: com.example.proyectolibrefinal.ViewModel.ViewModel) {
+        println(viewModel.pedido)
         val id = auth.currentUser?.uid
-
         viewModelScope.launch(Dispatchers.IO) {
             firestore.collection("Menus")
-                .add(viewModel.chooseMenuToSaveFirebase(idMenuToSaveFirebase))
+                .add(PedidoModel(id!!, viewModel.pedido))
         }
+        viewModel.carrito.clear()
+        viewModel.pedido.clear()
     }
 
 

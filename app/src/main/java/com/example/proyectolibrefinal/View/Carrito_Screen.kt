@@ -10,12 +10,16 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
+import com.dam2_23_24.ejemplofirebase.viewModels.LoginViewModel
 import com.example.proyectolibrefinal.Model.Routes
 import com.example.proyectolibrefinal.ViewModel.ViewModel
 import com.example.proyectolibrefinal.Model.chooseMenu
 import com.example.proyectolibrefinal.apartadocarrito.ApartadoCarrito
 import com.example.proyectolibrefinal.framebotonesapp.FrameBotonesApp
+import com.example.proyectolibrefinal.realizarpedidobutton.RealizarPedidoButton
 import com.example.proyectolibrefinal.vistainicio.VistaInicio
+import com.google.relay.compose.BoxScopeInstance.columnWeight
+import com.google.relay.compose.BoxScopeInstance.rowWeight
 
 /**
  * Pantalla que nos muestra el carrito de nuestra app
@@ -23,7 +27,11 @@ import com.example.proyectolibrefinal.vistainicio.VistaInicio
  * @param navController Navegador que utilizaremos para dirigirnos a su pantalla
  */
 @Composable
-fun carrito_screen(viewModel: ViewModel, navController: NavController) {
+fun carrito_screen(
+    viewModel: ViewModel,
+    loginViewModel: LoginViewModel,
+    navController: NavController
+) {
     VistaInicio()
     encabezado()
 
@@ -34,28 +42,33 @@ fun carrito_screen(viewModel: ViewModel, navController: NavController) {
                 .padding(end = 165.dp)
         ) {
             ApartadoCarrito()
-        }
 
+        }
         Box {
             LazyColumn {
                 items(viewModel.carrito) { item ->
                     chooseMenu(id = item, viewModel)
                 }
             }
-
             Row(
                 modifier = Modifier
                     .padding(top = 481.dp)
                     .padding(bottom = 16.dp)
             ) {
-                FrameBotonesApp(
-                    menuButton = { navController.navigate(Routes.Screen_FoodMenu.route) },
-                    contactoButton = { navController.navigate(Routes.Screen_Contact.route) },
-                    carritoButton = { navController.navigate(Routes.Screen_Carrito.route) },
-                    homeButton = { navController.navigate(Routes.Screen_Inic.route) }
+                RealizarPedidoButton(
+                    realizarPedidoButton = {
+                        loginViewModel.saveMenu(viewModel)
+                        /*viewModel.carrito.clear()
+                        viewModel.pedido.clear()*/
+                    },
+                    modifier = Modifier
+                        .rowWeight(1.0f)
+                        .columnWeight(1.0f)
                 )
             }
+            
         }
+
     }
 }
 
