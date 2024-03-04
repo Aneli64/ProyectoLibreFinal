@@ -41,7 +41,7 @@ class MainActivity : ComponentActivity() {
                         navController = navController, startDestination = Routes.Screen_Login.route
                     ) {
                         composable(Routes.Screen_Inic.route) { inicio_screen(viewModel, navController) }
-                        composable(Routes.Screen_FoodMenu.route) { menu_screen(viewModel, navController) }
+                        composable(Routes.Screen_FoodMenu.route) { menu_screen(viewModel, navController, loginViewModel) }
                         composable(Routes.Screen_Contact.route) { contacto_screen(viewModel, navController) }
                         composable(Routes.Screen_Carrito.route) { carrito_screen(viewModel, navController) }
                         composable(Routes.Screen_Login.route) { pantalla_login(navController, loginViewModel) }

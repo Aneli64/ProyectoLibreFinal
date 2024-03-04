@@ -80,11 +80,11 @@ fun inicio_screen(viewModel: ViewModel, navController: NavHostController) {
                 .height(60.dp)
                 .padding(start = 30.dp)
         ) {
-            menu1View()
+            menu1View({}, "Timbal de patatas, huevos y jamón", "12,50€")
         }
 
         Row(modifier = Modifier.padding(start = 30.dp)) {
-            menu2View()
+            menu2View({}, "Merluza rellena de gambas", "14,70€")
         }
 
         Row(
@@ -99,7 +99,7 @@ fun inicio_screen(viewModel: ViewModel, navController: NavHostController) {
             ApartadoInicio2()
         }
         Row(modifier = Modifier.padding(start = 30.dp)) {
-            menu3View()
+            menu3View({}, "Salmorejo con mejillón frito", "8,65€")
         }
 
         Row(modifier = Modifier.padding(top = 30.dp)) {

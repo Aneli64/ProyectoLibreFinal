@@ -39,7 +39,7 @@ fun carrito_screen(viewModel: ViewModel, navController: NavController) {
         Box {
             LazyColumn {
                 items(viewModel.carrito) { item ->
-                    chooseMenu(id = item)
+                    chooseMenu(id = item, viewModel)
                 }
             }
 

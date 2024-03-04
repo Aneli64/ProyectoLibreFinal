@@ -7,6 +7,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.proyectolibrefinal.Model.MenuModel
 import com.example.proyectolibrefinal.Model.UserModel
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.auth
@@ -96,6 +97,16 @@ class LoginViewModel: ViewModel() {
                 .addOnFailureListener { Log.d("ERROR AL GUARDAR", "ERROR al guardar en Firestore") }
         }
     }
+
+    fun saveMenu(idMenuToSaveFirebase: Int, viewModel: com.example.proyectolibrefinal.ViewModel.ViewModel) { //onSuccess: () -> Unit
+        val id = auth.currentUser?.uid
+
+        viewModelScope.launch(Dispatchers.IO) {
+            firestore.collection("Menus")
+                .add(viewModel.chooseMenuToSaveFirebase(idMenuToSaveFirebase))
+        }
+    }
+
 
     /**
      * Cierra el diálogo de alerta de error mostrada en la UI.
