@@ -83,4 +83,8 @@ class ViewModel(app: Application) : AndroidViewModel(app) {
             }
         }
     }
+    fun limpiarPedido(){
+        carrito.clear()
+        pedido.clear()
+    }
 }

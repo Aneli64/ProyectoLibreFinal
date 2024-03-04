@@ -1,6 +1,8 @@
 package com.dam2_23_24.ejemplofirebase.viewModels
 
+import android.content.Context
 import android.util.Log
+import android.widget.Toast
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateOf
@@ -99,15 +101,14 @@ class LoginViewModel: ViewModel() {
         }
     }
 
-    fun saveMenu(viewModel: com.example.proyectolibrefinal.ViewModel.ViewModel) {
+    fun saveMenu(context: Context, viewModel: com.example.proyectolibrefinal.ViewModel.ViewModel) {
         println(viewModel.pedido)
         val id = auth.currentUser?.uid
         viewModelScope.launch(Dispatchers.IO) {
             firestore.collection("Menus")
                 .add(PedidoModel(id!!, viewModel.pedido))
         }
-        viewModel.carrito.clear()
-        viewModel.pedido.clear()
+        Toast.makeText(context, "¡Pedido realizado con éxito!", Toast.LENGTH_SHORT).show()
     }
 
 

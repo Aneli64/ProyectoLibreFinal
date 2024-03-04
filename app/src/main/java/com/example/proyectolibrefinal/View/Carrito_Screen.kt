@@ -8,6 +8,7 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import com.dam2_23_24.ejemplofirebase.viewModels.LoginViewModel
@@ -35,6 +36,8 @@ fun carrito_screen(
     VistaInicio()
     encabezado()
 
+    val context = LocalContext.current
+
     Column {
         Row(
             modifier = Modifier
@@ -52,21 +55,44 @@ fun carrito_screen(
             }
             Row(
                 modifier = Modifier
-                    .padding(top = 481.dp)
+                    .padding(top = 340.dp)
                     .padding(bottom = 16.dp)
+                    .padding(start = 16.dp)
             ) {
                 RealizarPedidoButton(
                     realizarPedidoButton = {
-                        loginViewModel.saveMenu(viewModel)
-                        /*viewModel.carrito.clear()
-                        viewModel.pedido.clear()*/
+                        loginViewModel.saveMenu(context, viewModel)
                     },
                     modifier = Modifier
                         .rowWeight(1.0f)
                         .columnWeight(1.0f)
                 )
             }
-            
+            Row(
+                modifier = Modifier
+                    .padding(top = 481.dp)
+                    .padding(bottom = 16.dp)
+            ) {
+                FrameBotonesApp(
+                    menuButton = {
+                        navController.navigate(Routes.Screen_FoodMenu.route)
+                        viewModel.limpiarPedido()
+                    },
+                    contactoButton = {
+                        navController.navigate(Routes.Screen_Contact.route)
+                        viewModel.limpiarPedido()
+                    },
+                    carritoButton = {
+                        navController.navigate(Routes.Screen_Carrito.route)
+                        viewModel.limpiarPedido()
+                    },
+                    homeButton = {
+                        navController.navigate(Routes.Screen_Inic.route)
+                        viewModel.limpiarPedido()
+                    }
+                )
+            }
+
         }
 
     }
