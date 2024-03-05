@@ -38,7 +38,7 @@ class MainActivity : ComponentActivity() {
                 ) {
                     val navController = rememberNavController()
                     NavHost(
-                        navController = navController, startDestination = Routes.Screen_Inic.route
+                        navController = navController, startDestination = Routes.Screen_Login.route
                     ) {
                         composable(Routes.Screen_Inic.route) { inicio_screen(viewModel, navController) }
                         composable(Routes.Screen_FoodMenu.route) { menu_screen(viewModel, navController) }
