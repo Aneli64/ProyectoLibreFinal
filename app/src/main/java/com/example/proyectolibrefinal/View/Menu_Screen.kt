@@ -32,16 +32,15 @@ fun menu_screen(
     viewModel: ViewModel,
     navController: NavController
 ) {
-    //Fondo de pantalla
     VistaInicio()
 
     val context = LocalContext.current
-
 
     Column(
         modifier = Modifier
             .padding(start = 20.dp)
     ) {
+        //Carta completa de nuestra app agrupados en Rows
         Row(
             modifier = Modifier
                 .padding(top = 20.dp)

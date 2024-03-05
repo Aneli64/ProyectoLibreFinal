@@ -18,7 +18,7 @@ import com.google.firebase.firestore.firestore
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
-class LoginViewModel: ViewModel() {
+class LoginViewModel : ViewModel() {
 
     private val auth: FirebaseAuth = Firebase.auth
     private val firestore = Firebase.firestore
@@ -38,7 +38,7 @@ class LoginViewModel: ViewModel() {
      * Metdo que nos realiza el login siempre u caudno se cumplan las condiciones necesarias
      * @param onSuccess Lamda que se ejecuta al realizarse correctamente la operacion de login
      */
-    fun login(onSuccess: () -> Unit){
+    fun login(onSuccess: () -> Unit) {
         viewModelScope.launch {
             try {
                 auth.signInWithEmailAndPassword(email, password)
@@ -46,11 +46,11 @@ class LoginViewModel: ViewModel() {
                         if (task.isSuccessful) {
                             onSuccess()
                         } else {
-                            Log.d("ERROR EN FIREBASE","Usuario y/o contrasena incorrectos")
+                            Log.d("ERROR EN FIREBASE", "Usuario y/o contrasena incorrectos")
                             showAlert = true
                         }
                     }
-            } catch (e: Exception){
+            } catch (e: Exception) {
                 Log.d("ERROR EN JETPACK", "ERROR: ${e.localizedMessage}")
             }
         }
@@ -60,7 +60,7 @@ class LoginViewModel: ViewModel() {
      * Metodo que crea un numero usuario en base a un email y password
      * @param onSuccess Lamda que se ejecuta al realizarse correctamente la operacion de create
      */
-    fun createUser(onSuccess: () -> Unit){
+    fun createUser(onSuccess: () -> Unit) {
         viewModelScope.launch {
             try {
                 auth.createUserWithEmailAndPassword(email, password)
@@ -69,11 +69,11 @@ class LoginViewModel: ViewModel() {
                             saveUser(userName)
                             onSuccess()
                         } else {
-                            Log.d("ERROR EN FIREBASE","Error al crear usuario")
+                            Log.d("ERROR EN FIREBASE", "Error al crear usuario")
                             showAlert = true
                         }
                     }
-            } catch (e: Exception){
+            } catch (e: Exception) {
                 Log.d("ERROR CREAR USUARIO", "ERROR: ${e.localizedMessage}")
             }
         }
@@ -83,7 +83,7 @@ class LoginViewModel: ViewModel() {
      * Metodo que almacena nuestro usuario en Firebase
      * @param username Nombre de usuario a guardar.
      */
-    private fun saveUser(username: String){
+    private fun saveUser(username: String) {
         val id = auth.currentUser?.uid
         val email = auth.currentUser?.email
 
@@ -95,21 +95,31 @@ class LoginViewModel: ViewModel() {
             )
             firestore.collection("Users")
                 .add(user)
-                .addOnSuccessListener { Log.d("GUARDAR OK", "Se guardó el usuario correctamente en Firestore") }
+                .addOnSuccessListener {
+                    Log.d(
+                        "GUARDAR OK",
+                        "Se guardó el usuario correctamente en Firestore"
+                    )
+                }
                 .addOnFailureListener { Log.d("ERROR AL GUARDAR", "ERROR al guardar en Firestore") }
         }
     }
 
+    /**
+     * Metodo que almacena los menus asociados en nuestro pedido en Firebase
+     * @param context Contexto de la app
+     * @param viewModel Viewmodel en el que se basa nuestra app
+     */
     fun saveMenu(context: Context, viewModel: com.example.proyectolibrefinal.ViewModel.ViewModel) {
         println(viewModel.pedido)
         val id = auth.currentUser?.uid
         if (id != null) {
             viewModelScope.launch(Dispatchers.IO) {
-                firestore.collection("Menus")
+                firestore.collection("Pedido")
                     .add(PedidoModel(id, viewModel.pedido))
             }
         } else {
-            Log.e("ERROR EN FIREBASE", "ID de usuario es nulo")
+            Log.e("ERROR EN FIREBASE", "ID de pedido nulo")
             // Manejar el caso en el que el ID de usuario es nulo, si es necesario
         }
 
@@ -121,7 +131,7 @@ class LoginViewModel: ViewModel() {
     /**
      * Cierra el diálogo de alerta de error mostrada en la UI.
      */
-    fun closeAlert(){
+    fun closeAlert() {
         showAlert = false
     }
 

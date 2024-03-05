@@ -1,4 +1,4 @@
-package com.example.proyectolibrefinal
+package com.example.proyectolibrefinal.View
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.requiredHeight
@@ -19,6 +19,10 @@ import com.example.proyectolibrefinal.realizarpedidobutton.TopLevel
 import com.example.proyectolibrefinal.realizarpedidobutton.sansitaSwashed
 import com.google.relay.compose.RelayText
 
+/**
+ * Texto que contiene nuestro boton de borrado de menus
+ * @param modifier estilo de nuestro texto
+ */
 @Composable
 fun TextDeleteButton(modifier: Modifier = Modifier) {
     RelayText(
@@ -38,15 +42,20 @@ fun TextDeleteButton(modifier: Modifier = Modifier) {
     )
 }
 
+/**
+ * Boton clickable que elimina nuestros menus almacenados
+ * @param modifier estilo de nuestro boton
+ * @param deleteMenusButton boton para borrado
+ */
 @Composable
 fun deleteMenuButton(
     modifier: Modifier = Modifier,
-    realizarPedidoButton: () -> Unit = {}
+    deleteMenusButton: () -> Unit = {}
 ) {
     TopLevel(modifier = modifier) {
         Group1 {
             Rectangle3(
-                realizarPedidoButton = realizarPedidoButton,
+                realizarPedidoButton = deleteMenusButton,
                 modifier = Modifier.boxAlign(
                     alignment = Alignment.Center,
                     offset = DpOffset(
@@ -68,6 +77,11 @@ fun deleteMenuButton(
     }
 }
 
+/**
+ * Boton clickable que pide nuestros menus almacenados
+ * @param modifier estilo de nuestro boton
+ * @param realizarPedidoButton boton para pedir
+ */
 @Composable
 fun aceptarPedidoButton(
     modifier: Modifier = Modifier,

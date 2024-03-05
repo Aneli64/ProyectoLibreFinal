@@ -9,6 +9,21 @@ import com.example.proyectolibrefinal.Model.MenuModel
 /**
  * Clase ViewModel en dodne gestionaremos la lógica necesaria en nuestro programa
  * @param app aplicacion a la que hacemos referencia
+ * @property menu1Pedido Boolean que gestiona la solicitud del menu 1
+ * @property menu2Pedido Boolean que gestiona la solicitud del menu 2
+ * @property menu3Pedido Boolean que gestiona la solicitud del menu 3
+ * @property menu4Pedido Boolean que gestiona la solicitud del menu 4
+ * @property menu5Pedido Boolean que gestiona la solicitud del menu 5
+ * @property menu1content Nombre y precio del menu 1
+ * @property menu2content Nombre y precio del menu 2
+ * @property menu3content Nombre y precio del menu 3
+ * @property menu4content Nombre y precio del menu 4
+ * @property menu5content Nombre y precio del menu 5
+ * @property carrito Lista donde añadiremos el numero en base al id del menu seleccionado
+ * @property pedido Lista donde almacenaremos los menus solicitados
+ * @property realizarPedidoClicked Boolean que gestiona la disponibilidad de nuestro boton de
+ * realizar pedido
+ * @property limpiarPedidoClicked Boolean que gestiona el borrado de nuestro carrito
  */
 class ViewModel(app: Application) : AndroidViewModel(app) {
 
@@ -82,6 +97,10 @@ class ViewModel(app: Application) : AndroidViewModel(app) {
         }
     }
 
+    /**
+     * Metodo por el cual eliminamos el carrito tras confirmarse una compra (para poder seguir
+     * haciendo nuevos pedidos)
+     */
     fun deletePedidoPostCompra() {
         if (realizarPedidoClicked) {
             carrito.clear()
@@ -90,6 +109,9 @@ class ViewModel(app: Application) : AndroidViewModel(app) {
         }
     }
 
+    /**
+     * Metodo por el cual borramos el pedido actual
+     */
     fun limpiarPedido(){
         if (!limpiarPedidoClicked && pedido.isNotEmpty()) {
             carrito.clear()
@@ -98,6 +120,10 @@ class ViewModel(app: Application) : AndroidViewModel(app) {
         }
     }
 
+    /**
+     * Metodo en donde con ayuda de un booleano, comprobamos el estado del pedido para pasar a un
+     * nuevo pedido, o seguir añadiendo menus a nuestro pedido actual
+     */
     fun boolSeguirComprando(){
         if (limpiarPedidoClicked) {
             limpiarPedidoClicked = false

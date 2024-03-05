@@ -1,5 +1,9 @@
 package com.example.proyectolibrefinal.Model
 
+/**
+ * Routas con las que cuenta nuestra app para navegar
+ * @param route ruta a la que hacemos referencia
+ */
 sealed class Routes(val route: String) {
 
     object Screen_Inic : Routes("pantalla icono 1 (inicio)")

@@ -34,7 +34,11 @@ import com.example.proyectolibrefinal.Model.Routes
 import com.example.proyectolibrefinal.ViewModel.ViewModel
 import com.example.proyectolibrefinal.vistainicio.VistaInicio
 
-
+/**
+ * Pantalla en donde poremos logearnos en la app
+ * @param navController Navegador que utilizaremos para dirigirnos a su pantalla
+ * @param loginViewModel Viewmodel necesario para la insercción de los datos en la bd Firebase
+ */
 @Composable
 fun pantalla_login(navController: NavController, loginViewModel: LoginViewModel) {
     VistaInicio()
@@ -102,6 +106,12 @@ fun pantalla_login(navController: NavController, loginViewModel: LoginViewModel)
 
 }
 
+/**
+ * Alerta que mostraremos en caso de error al logearnos
+ * @param confirmText Texto de confirmacion
+ * @param onAcceptClick Lamba para nuestro logeo
+ * @param OnDissmisClicl Lambda en caso de error de logeo
+ */
 @Composable
 fun ShowAlert(
     confirmText: String,
@@ -126,7 +136,10 @@ fun ShowAlert(
 
 }
 
-
+/**
+ * Metodo que nos lanza nuestro alerta de login
+ * @param loginViewModel Viewmodel necesario para la conexion de los datos con Firebase
+ */
 @Composable
 fun LlamadaShowAlert(loginViewModel: LoginViewModel) {
     if (loginViewModel.showAlert) {

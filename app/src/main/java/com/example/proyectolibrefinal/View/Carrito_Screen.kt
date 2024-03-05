@@ -16,9 +16,7 @@ import com.dam2_23_24.ejemplofirebase.viewModels.LoginViewModel
 import com.example.proyectolibrefinal.Model.Routes
 import com.example.proyectolibrefinal.ViewModel.ViewModel
 import com.example.proyectolibrefinal.Model.chooseMenu
-import com.example.proyectolibrefinal.aceptarPedidoButton
 import com.example.proyectolibrefinal.apartadocarrito.ApartadoCarrito
-import com.example.proyectolibrefinal.deleteMenuButton
 import com.example.proyectolibrefinal.framebotonesapp.FrameBotonesApp
 import com.example.proyectolibrefinal.vistainicio.VistaInicio
 import com.google.relay.compose.BoxScopeInstance.columnWeight
@@ -27,6 +25,7 @@ import com.google.relay.compose.BoxScopeInstance.rowWeight
 /**
  * Pantalla que nos muestra el carrito de nuestra app
  * @param viewModel Viewmodel en el que se basa nuestra app
+ * @param loginViewModel Viewmodel necesario para la insercción de los datos en la bd Firebase
  * @param navController Navegador que utilizaremos para dirigirnos a su pantalla
  */
 @Composable
@@ -81,7 +80,7 @@ fun carrito_screen(
                     .padding(bottom = 16.dp)
                     .padding(start = 200.dp)
             ) {
-                deleteMenuButton(realizarPedidoButton = { viewModel.limpiarPedido()
+                deleteMenuButton(deleteMenusButton = { viewModel.limpiarPedido()
                     Toast.makeText(
                         context,
                         "Pedido eliminado",

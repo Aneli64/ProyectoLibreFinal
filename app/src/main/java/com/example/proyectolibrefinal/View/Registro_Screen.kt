@@ -27,7 +27,11 @@ import com.dam2_23_24.ejemplofirebase.viewModels.LoginViewModel
 import com.example.proyectolibrefinal.Model.Routes
 import com.example.proyectolibrefinal.vistainicio.VistaInicio
 
-
+/**
+ * Screen en donde realizamos el registro de un nuevo usuario
+ * @param navController Navegador que utilizaremos para dirigirnos a su pantalla
+ * @param loginViewModel Viewmodel necesario para la insercción de los datos en la bd Firebase
+ */
 @Composable
 fun pantalla_registro(navController: NavController, loginViewModel: LoginViewModel) {
     VistaInicio()
@@ -80,6 +84,12 @@ fun pantalla_registro(navController: NavController, loginViewModel: LoginViewMod
     LlamadaShowAlertRegistro(loginViewModel = loginViewModel)
 }
 
+/**
+ * Alerta que mostraremos en caso de error al registrarnos
+ * @param confirmText Texto de confirmacion
+ * @param onAcceptClick Lamba para nuestro logeo
+ * @param OnDissmisClicl Lambda en caso de error de logeo
+ */
 @Composable
 fun ShowAlertRegistro(
     confirmText: String,
@@ -105,7 +115,10 @@ fun ShowAlertRegistro(
 
 }
 
-
+/**
+ * Metodo que nos lanza nuestro alerta de registro
+ * @param loginViewModel Viewmodel necesario para la conexion de los datos con Firebase
+ */
 @Composable
 fun LlamadaShowAlertRegistro(loginViewModel: LoginViewModel) {
     if (loginViewModel.showAlert) {

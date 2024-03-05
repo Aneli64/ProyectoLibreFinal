@@ -36,9 +36,10 @@ import com.example.proyectolibrefinal.framecartacompleta.Text4
 import com.example.proyectolibrefinal.framecartacompleta.Text5
 
 /**
- * Metodo por el cual en base a un id, elegiremos mostrar los diferentes menus que apareceŕan en
+ * Metodo por el cual en base a un id, elegiremos mostrar los diferentes menus que se añadirán a
  * nuestro carrito
  * @param id ID del menú a mostrar
+ * @param viewModel Viewmodel en el que se basa nuestra app
  */
 @Composable
 fun chooseMenu(id: Int, viewModel: ViewModel) {
@@ -54,6 +55,8 @@ fun chooseMenu(id: Int, viewModel: ViewModel) {
 /**
  * Vista del menú 1
  * @param menu1Button Botón clickable que añade nuestro menú 1
+ * @param nombreMenu1 Nombre completo de nuestro menu 1
+ * @param precioMenu1 Precio completo de nuestro menu 1
  */
 @Composable
 fun menu1View(menu1Button: () -> Unit = {}, nombreMenu1: String, precioMenu1: String) {
@@ -110,6 +113,8 @@ fun menu1View(menu1Button: () -> Unit = {}, nombreMenu1: String, precioMenu1: St
 /**
  * Vista del menú 2
  * @param menu2Button Botón clickable que añade nuestro menú 2
+ * @param nombreMenu2 Nombre completo de nuestro menu 2
+ * @param precioMenu2 Precio completo de nuestro menu 2
  */
 @Composable
 fun menu2View(menu2Button: () -> Unit = {}, nombreMenu2: String, precioMenu2: String) {
@@ -166,6 +171,8 @@ fun menu2View(menu2Button: () -> Unit = {}, nombreMenu2: String, precioMenu2: St
 /**
  * Vista del menú 3
  * @param menu3Button Botón clickable que añade nuestro menú 3
+ * @param nombreMenu3 Nombre completo de nuestro menu 3
+ * @param precioMenu3 Precio completo de nuestro menu 3
  */
 @Composable
 fun menu3View(menu3Button: () -> Unit = {}, nombreMenu3: String, precioMenu3: String) {
@@ -222,6 +229,8 @@ fun menu3View(menu3Button: () -> Unit = {}, nombreMenu3: String, precioMenu3: St
 /**
  * Vista del menú 4
  * @param menu4Button Botón clickable que añade nuestro menú 4
+ * @param nombreMenu4 Nombre completo de nuestro menu 4
+ * @param precioMenu4 Precio completo de nuestro menu 4
  */
 @Composable
 fun menu4View(menu4Button: () -> Unit = {}, nombreMenu4: String, precioMenu4: String) {
@@ -278,6 +287,8 @@ fun menu4View(menu4Button: () -> Unit = {}, nombreMenu4: String, precioMenu4: St
 /**
  * Vista del menú 5
  * @param menu5Button Botón clickable que añade nuestro menú 5
+ * @param nombreMenu5 Nombre completo de nuestro menu 5
+ * @param precioMenu5 Precio completo de nuestro menu 5
  */
 @Composable
 fun menu5View(menu5Button: () -> Unit = {}, nombreMenu5: String, precioMenu5: String) {

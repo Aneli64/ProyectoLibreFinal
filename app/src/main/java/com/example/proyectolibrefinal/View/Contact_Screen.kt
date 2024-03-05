@@ -15,11 +15,10 @@ import com.example.proyectolibrefinal.vistainicio.VistaInicio
 
 /**
  * Pantalla que nos muestra el contacto de nuestra app
- * @param viewModel Viewmodel en el que se basa nuestra app
  * @param navController Navegador que utilizaremos para dirigirnos a su pantalla
  */
 @Composable
-fun contacto_screen(viewModel: ViewModel, navController: NavController) {
+fun contacto_screen(navController: NavController) {
     VistaInicio()
     encabezado()
 
