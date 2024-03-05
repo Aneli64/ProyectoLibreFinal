@@ -3,12 +3,7 @@ package com.example.proyectolibrefinal.ViewModel
 import android.app.Application
 import android.content.Context
 import android.widget.Toast
-import androidx.compose.runtime.Composable
-import androidx.compose.ui.platform.LocalContext
 import androidx.lifecycle.AndroidViewModel
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
-import com.dam2_23_24.ejemplofirebase.viewModels.LoginViewModel
 import com.example.proyectolibrefinal.Model.MenuModel
 
 /**
@@ -27,12 +22,15 @@ class ViewModel(app: Application) : AndroidViewModel(app) {
     val menu1content = listOf("Timbal de patatas, huevos y jamón", "12,50€")
     val menu2content = listOf("Merluza rellena de gambas", "14,70€")
     val menu3content = listOf("Salmorejo con mejillón frito", "8,65€")
-    val menu4content = listOf("Sardinillas en aceite, oliva y tallarín de Guayonje", "11,50€")
+    val menu4content = listOf("Sardinillas en aceite, oliva y tallarín", "11,50€")
     val menu5content = listOf("Crema de calabaza con vieiras", "6,50€")
 
     //carrito en donde almacenaremos los menus solicitados
     var carrito = mutableListOf<Int>()
     var pedido = mutableListOf<MenuModel>()
+
+    var realizarPedidoClicked: Boolean = false
+    var limpiarPedidoClicked: Boolean = false
 
     /**
      * Método por el cual añadiremos un menu a nuestro carrito personal
@@ -83,8 +81,26 @@ class ViewModel(app: Application) : AndroidViewModel(app) {
             }
         }
     }
+
+    fun deletePedidoPostCompra() {
+        if (realizarPedidoClicked) {
+            carrito.clear()
+            pedido.clear()
+            realizarPedidoClicked = false
+        }
+    }
+
     fun limpiarPedido(){
-        carrito.clear()
-        pedido.clear()
+        if (!limpiarPedidoClicked && pedido.isNotEmpty()) {
+            carrito.clear()
+            pedido.clear()
+            limpiarPedidoClicked = true
+        }
+    }
+
+    fun boolSeguirComprando(){
+        if (limpiarPedidoClicked) {
+            limpiarPedidoClicked = false
+        }
     }
 }

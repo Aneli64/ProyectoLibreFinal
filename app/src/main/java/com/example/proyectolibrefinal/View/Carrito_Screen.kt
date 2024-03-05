@@ -1,5 +1,6 @@
 package com.example.proyectolibrefinal.View
 
+import android.widget.Toast
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -15,9 +16,10 @@ import com.dam2_23_24.ejemplofirebase.viewModels.LoginViewModel
 import com.example.proyectolibrefinal.Model.Routes
 import com.example.proyectolibrefinal.ViewModel.ViewModel
 import com.example.proyectolibrefinal.Model.chooseMenu
+import com.example.proyectolibrefinal.aceptarPedidoButton
 import com.example.proyectolibrefinal.apartadocarrito.ApartadoCarrito
+import com.example.proyectolibrefinal.deleteMenuButton
 import com.example.proyectolibrefinal.framebotonesapp.FrameBotonesApp
-import com.example.proyectolibrefinal.realizarpedidobutton.RealizarPedidoButton
 import com.example.proyectolibrefinal.vistainicio.VistaInicio
 import com.google.relay.compose.BoxScopeInstance.columnWeight
 import com.google.relay.compose.BoxScopeInstance.rowWeight
@@ -55,17 +57,36 @@ fun carrito_screen(
             }
             Row(
                 modifier = Modifier
-                    .padding(top = 340.dp)
+                    .padding(top = 310.dp)
                     .padding(bottom = 16.dp)
-                    .padding(start = 16.dp)
+                    .padding(end = 200.dp)
             ) {
-                RealizarPedidoButton(
+                aceptarPedidoButton(
                     realizarPedidoButton = {
-                        loginViewModel.saveMenu(context, viewModel)
+                        if (viewModel.pedido.isEmpty()) Toast.makeText(
+                            context,
+                            "¡Debe elegir sus menús!",
+                            Toast.LENGTH_SHORT
+                        ).show()
+                        else loginViewModel.saveMenu(context, viewModel)
                     },
                     modifier = Modifier
                         .rowWeight(1.0f)
                         .columnWeight(1.0f)
+                )
+            }
+            Row(
+                modifier = Modifier
+                    .padding(top = 310.dp)
+                    .padding(bottom = 16.dp)
+                    .padding(start = 200.dp)
+            ) {
+                deleteMenuButton(realizarPedidoButton = { viewModel.limpiarPedido()
+                    Toast.makeText(
+                        context,
+                        "Pedido eliminado",
+                        Toast.LENGTH_SHORT
+                    ).show()}
                 )
             }
             Row(
@@ -76,19 +97,23 @@ fun carrito_screen(
                 FrameBotonesApp(
                     menuButton = {
                         navController.navigate(Routes.Screen_FoodMenu.route)
-                        viewModel.limpiarPedido()
+                        viewModel.deletePedidoPostCompra()
+                        viewModel.boolSeguirComprando()
                     },
                     contactoButton = {
                         navController.navigate(Routes.Screen_Contact.route)
-                        viewModel.limpiarPedido()
+                        viewModel.deletePedidoPostCompra()
+                        viewModel.boolSeguirComprando()
                     },
                     carritoButton = {
                         navController.navigate(Routes.Screen_Carrito.route)
-                        viewModel.limpiarPedido()
+                        viewModel.deletePedidoPostCompra()
+                        viewModel.boolSeguirComprando()
                     },
                     homeButton = {
                         navController.navigate(Routes.Screen_Inic.route)
-                        viewModel.limpiarPedido()
+                        viewModel.deletePedidoPostCompra()
+                        viewModel.boolSeguirComprando()
                     }
                 )
             }

@@ -9,7 +9,6 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.proyectolibrefinal.Model.MenuModel
 import com.example.proyectolibrefinal.Model.PedidoModel
 import com.example.proyectolibrefinal.Model.UserModel
 import com.google.firebase.auth.FirebaseAuth
@@ -104,10 +103,17 @@ class LoginViewModel: ViewModel() {
     fun saveMenu(context: Context, viewModel: com.example.proyectolibrefinal.ViewModel.ViewModel) {
         println(viewModel.pedido)
         val id = auth.currentUser?.uid
-        viewModelScope.launch(Dispatchers.IO) {
-            firestore.collection("Menus")
-                .add(PedidoModel(id!!, viewModel.pedido))
+        if (id != null) {
+            viewModelScope.launch(Dispatchers.IO) {
+                firestore.collection("Menus")
+                    .add(PedidoModel(id, viewModel.pedido))
+            }
+        } else {
+            Log.e("ERROR EN FIREBASE", "ID de usuario es nulo")
+            // Manejar el caso en el que el ID de usuario es nulo, si es necesario
         }
+
+        viewModel.realizarPedidoClicked = true
         Toast.makeText(context, "¡Pedido realizado con éxito!", Toast.LENGTH_SHORT).show()
     }
 
