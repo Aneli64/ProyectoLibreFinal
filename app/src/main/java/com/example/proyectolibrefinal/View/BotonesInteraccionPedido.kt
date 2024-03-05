@@ -38,7 +38,9 @@ fun TextDeleteButton(modifier: Modifier = Modifier) {
         height = 1.2.em,
         textAlign = TextAlign.Left,
         maxLines = -1,
-        modifier = modifier.requiredWidth(100.0.dp).requiredHeight(26.0.dp)
+        modifier = modifier
+            .requiredWidth(100.0.dp)
+            .requiredHeight(26.0.dp)
     )
 }
 
@@ -54,16 +56,6 @@ fun deleteMenuButton(
 ) {
     TopLevel(modifier = modifier) {
         Group1 {
-            Rectangle3(
-                realizarPedidoButton = deleteMenusButton,
-                modifier = Modifier.boxAlign(
-                    alignment = Alignment.Center,
-                    offset = DpOffset(
-                        x = 0.0.dp,
-                        y = 0.0.dp
-                    )
-                ).background(Color.Black)
-            )
             TextDeleteButton(
                 modifier = Modifier.boxAlign(
                     alignment = Alignment.Center,
@@ -73,6 +65,17 @@ fun deleteMenuButton(
                     )
                 )
             )
+            Rectangle3(
+                realizarPedidoButton = deleteMenusButton,
+                modifier = Modifier.boxAlign(
+                    alignment = Alignment.Center,
+                    offset = DpOffset(
+                        x = 0.0.dp,
+                        y = 0.0.dp
+                    )
+                )
+            )
+
         }
     }
 }
@@ -89,16 +92,6 @@ fun aceptarPedidoButton(
 ) {
     TopLevel(modifier = modifier) {
         Group1 {
-            Rectangle3(
-                realizarPedidoButton = realizarPedidoButton,
-                modifier = Modifier.boxAlign(
-                    alignment = Alignment.Center,
-                    offset = DpOffset(
-                        x = 0.0.dp,
-                        y = 0.0.dp
-                    )
-                ).background(Color.Black)
-            )
             TituloTextInf(
                 modifier = Modifier.boxAlign(
                     alignment = Alignment.Center,
@@ -108,6 +101,17 @@ fun aceptarPedidoButton(
                     )
                 )
             )
+            Rectangle3(
+                realizarPedidoButton = realizarPedidoButton,
+                modifier = Modifier.boxAlign(
+                    alignment = Alignment.Center,
+                    offset = DpOffset(
+                        x = 0.0.dp,
+                        y = 0.0.dp
+                    )
+                )
+            )
+
 
         }
     }

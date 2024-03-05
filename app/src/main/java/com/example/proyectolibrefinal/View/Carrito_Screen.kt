@@ -4,6 +4,7 @@ import android.widget.Toast
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
@@ -49,7 +50,7 @@ fun carrito_screen(
 
         }
         Box {
-            LazyColumn {
+            LazyColumn(modifier = Modifier.fillMaxHeight(0.7f)) {
                 items(viewModel.carrito) { item ->
                     chooseMenu(id = item, viewModel)
                 }
@@ -67,7 +68,10 @@ fun carrito_screen(
                             "¡Debe elegir sus menús!",
                             Toast.LENGTH_SHORT
                         ).show()
-                        else loginViewModel.saveMenu(context, viewModel)
+                        else {
+                            loginViewModel.saveMenu(context, viewModel)
+                            navController.navigate(Routes.Screen_Carrito.route)
+                        }
                     },
                     modifier = Modifier
                         .rowWeight(1.0f)
@@ -80,13 +84,17 @@ fun carrito_screen(
                     .padding(bottom = 16.dp)
                     .padding(start = 200.dp)
             ) {
-                deleteMenuButton(deleteMenusButton = { viewModel.limpiarPedido()
+                deleteMenuButton(deleteMenusButton = {
+                    viewModel.limpiarPedido()
                     Toast.makeText(
                         context,
                         "Pedido eliminado",
                         Toast.LENGTH_SHORT
-                    ).show()}
+                    ).show()
+                    navController.navigate(Routes.Screen_Carrito.route)
+                }
                 )
+
             }
             Row(
                 modifier = Modifier

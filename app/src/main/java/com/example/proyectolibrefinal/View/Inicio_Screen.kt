@@ -83,7 +83,9 @@ fun inicio_screen(viewModel: ViewModel, navController: NavHostController) {
             menu1View({}, viewModel.menu1content[0], viewModel.menu1content[1])
         }
 
-        Row(modifier = Modifier.padding(start = 30.dp)) {
+        Row(modifier = Modifier
+            .padding(start = 30.dp)
+            .padding(top = 20.dp)) {
             menu2View({}, viewModel.menu2content[0], viewModel.menu2content[1])
         }
 
@@ -102,12 +104,12 @@ fun inicio_screen(viewModel: ViewModel, navController: NavHostController) {
             menu3View({}, viewModel.menu3content[0], viewModel.menu3content[1])
         }
 
-        Row(modifier = Modifier.padding(top = 30.dp)) {
+        Row(modifier = Modifier.padding(top = 10.dp)) {
             FrameBotonesApp(
                 menuButton = { navController.navigate(Routes.Screen_FoodMenu.route) },
                 contactoButton = { navController.navigate(Routes.Screen_Contact.route) },
                 carritoButton = { navController.navigate(Routes.Screen_Carrito.route) },
-                homeButton = {navController.navigate(Routes.Screen_Inic.route)}
+                homeButton = { navController.navigate(Routes.Screen_Inic.route) }
             )
         }
 

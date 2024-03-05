@@ -117,6 +117,7 @@ class LoginViewModel : ViewModel() {
             viewModelScope.launch(Dispatchers.IO) {
                 firestore.collection("Pedido")
                     .add(PedidoModel(id, viewModel.pedido))
+                viewModel.deletePedidoPostCompra()
             }
         } else {
             Log.e("ERROR EN FIREBASE", "ID de pedido nulo")

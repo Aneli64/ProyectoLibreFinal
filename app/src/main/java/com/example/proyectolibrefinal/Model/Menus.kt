@@ -1,6 +1,7 @@
 package com.example.proyectolibrefinal.Model
 
 import androidx.compose.foundation.border
+import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -86,10 +87,10 @@ fun menu1View(menu1Button: () -> Unit = {}, nombreMenu1: String, precioMenu1: St
             modifier = Modifier.boxAlign(
                 alignment = Alignment.Center,
                 offset = DpOffset(
-                    x = 25.5.dp,
+                    x = 20.5.dp,
                     y = -3.5.dp
                 )
-            )
+            ).border(width = 5.dp, color = Color.White)
         )
         Precio1(
             precioMenu1 = precioMenu1,
@@ -101,10 +102,9 @@ fun menu1View(menu1Button: () -> Unit = {}, nombreMenu1: String, precioMenu1: St
                         y = 39.5.dp
                     )
                 )
-                .border(width = 5.dp, color = Color.White)
                 .graphicsLayer(
                     translationX = 20.0F,
-                    translationY = 30.0F
+                    translationY = 50.0F
                 )
         )
     }
@@ -129,10 +129,9 @@ fun menu2View(menu2Button: () -> Unit = {}, nombreMenu2: String, precioMenu2: St
                         y = 55.5.dp
                     )
                 )
-                .border(width = 5.dp, color = Color.White)
                 .graphicsLayer(
                     translationX = 20.0F,
-                    translationY = 30.0F
+                    translationY = 50.0F
                 )
         )
         Text2(
@@ -140,10 +139,10 @@ fun menu2View(menu2Button: () -> Unit = {}, nombreMenu2: String, precioMenu2: St
             modifier = Modifier.boxAlign(
                 alignment = Alignment.Center,
                 offset = DpOffset(
-                    x = 57.0.dp,
-                    y = 5.5.dp
+                    x = 55.0.dp,
+                    y = -8.5.dp
                 )
-            )
+            ).border(width = 5.dp, color = Color.White)
         )
         Image4(
             modifier = Modifier
@@ -193,10 +192,9 @@ fun menu3View(menu3Button: () -> Unit = {}, nombreMenu3: String, precioMenu3: St
                     alignment = Alignment.Center,
                     offset = DpOffset(
                         x = 144.0.dp,
-                        y = 46.0.dp
+                        y = 62.5.dp
                     )
                 )
-                .border(width = 5.dp, color = Color.White)
                 .graphicsLayer(
                     translationX = 20.0F,
                     translationY = 30.0F
@@ -207,10 +205,10 @@ fun menu3View(menu3Button: () -> Unit = {}, nombreMenu3: String, precioMenu3: St
             modifier = Modifier.boxAlign(
                 alignment = Alignment.Center,
                 offset = DpOffset(
-                    x = 57.0.dp,
-                    y = 5.0.dp
+                    x = 50.0.dp,
+                    y = 2.5.dp
                 )
-            )
+            ).border(width = 5.dp, color = Color.White)
         )
         Image7(
             modifier = Modifier
@@ -251,10 +249,9 @@ fun menu4View(menu4Button: () -> Unit = {}, nombreMenu4: String, precioMenu4: St
                     alignment = Alignment.Center,
                     offset = DpOffset(
                         x = 144.0.dp,
-                        y = 43.0.dp
+                        y = 60.5.dp
                     )
                 )
-                .border(width = 5.dp, color = Color.White)
                 .graphicsLayer(
                     translationX = 20.0F,
                     translationY = 30.0F
@@ -265,10 +262,10 @@ fun menu4View(menu4Button: () -> Unit = {}, nombreMenu4: String, precioMenu4: St
             modifier = Modifier.boxAlign(
                 alignment = Alignment.Center,
                 offset = DpOffset(
-                    x = 57.0.dp,
-                    y = 1.0.dp
+                    x = 50.0.dp,
+                    y = 2.0.dp
                 )
-            )
+            ).border(width = 5.dp, color = Color.White)
         )
         Image8(
             modifier = Modifier
@@ -279,7 +276,6 @@ fun menu4View(menu4Button: () -> Unit = {}, nombreMenu4: String, precioMenu4: St
                         y = 2.5.dp
                     )
                 )
-                .border(width = 5.dp, color = Color.White)
         )
     }
 }
@@ -318,10 +314,10 @@ fun menu5View(menu5Button: () -> Unit = {}, nombreMenu5: String, precioMenu5: St
             modifier = Modifier.boxAlign(
                 alignment = Alignment.Center,
                 offset = DpOffset(
-                    x = 45.5.dp,
+                    x = 40.5.dp,
                     y = -3.5.dp
                 )
-            )
+            ).border(width = 5.dp, color = Color.White)
         )
         Precio5(
             precioMenu5 = precioMenu5,
@@ -330,10 +326,9 @@ fun menu5View(menu5Button: () -> Unit = {}, nombreMenu5: String, precioMenu5: St
                     alignment = Alignment.Center,
                     offset = DpOffset(
                         x = 144.0.dp,
-                        y = 39.5.dp
+                        y = 58.5.dp
                     )
                 )
-                .border(width = 5.dp, color = Color.White)
                 .graphicsLayer(
                     translationX = 20.0F,
                     translationY = 30.0F
